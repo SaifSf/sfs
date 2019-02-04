@@ -1,13 +1,33 @@
 package com.example.sfslibrary;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Base64;
+import android.util.Log;
 import android.widget.Toast;
 
-public class MessageToast {
+import com.securepreferences.SecurePreferences;
+
+public class MessageToast  {
 
 
-    public static void MessageShow(Context context , String s) {
+    private final String passwords = "password";
 
-        Toast.makeText(context,s , Toast.LENGTH_SHORT).show();
+    public static void MessageShow(Context context, String s) {
+
+        Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
     }
+
+    public void addPassword(Context context, String password) {
+        SharedPreferences.Editor editor = new SecurePreferences(context, "password", "my_user_prefs.xml").edit();
+
+        editor.putString(passwords, password);
+        editor.apply();
+        Log.i("waaaaaa library ", "addPassword: " +password);
+
+    }
+
+
+
+
 }
