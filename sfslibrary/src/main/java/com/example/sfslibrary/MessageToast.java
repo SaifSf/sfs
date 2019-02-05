@@ -24,10 +24,10 @@ public class MessageToast  {
         editor.apply();
         editor.commit();
 
-        String my_value= preferences.getString(passwords,null);
+       // String my_value= preferences.getString(passwords,null);
 
 
-        Log.i("waaaaaa library ", "addPassword: " +my_value);
+        Log.i("waaaaaa library ", "addPassword: " );
 
     }
 
