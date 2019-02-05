@@ -11,21 +11,23 @@ import com.securepreferences.SecurePreferences;
 public class MessageToast  {
 
 
-    private final String passwords = "password";
+    private static String passwords = "password";
 
     public static void MessageShow(Context context, String s) {
 
         Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
     }
 
-    public void addPassword(Context context, String password) {
-        SharedPreferences.Editor editor = new SecurePreferences(context, "password", "my_user_prefs.xml").edit();
+    public static void addPassword(Context context, String password) {
+        SharedPreferences.Editor editor = new SecurePreferences(context, passwords, "my_user_prefs.xml").edit();
 
         editor.putString(passwords, password);
         editor.apply();
         Log.i("waaaaaa library ", "addPassword: " +password);
 
     }
+
+
 
 
 
