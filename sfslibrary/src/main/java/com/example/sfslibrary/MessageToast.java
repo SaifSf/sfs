@@ -2,13 +2,10 @@ package com.example.sfslibrary;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Base64;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.securepreferences.SecurePreferences;
-
-import java.util.logging.SocketHandler;
 
 public class MessageToast  {
 
@@ -26,7 +23,7 @@ public class MessageToast  {
         editor.putString(passwords, password);
         editor.apply();
 
-        String my_value= preferences.getString(passwords,password);
+        String my_value= preferences.getString(passwords,null);
 
 
         Log.i("waaaaaa library ", "addPassword: " +my_value);
