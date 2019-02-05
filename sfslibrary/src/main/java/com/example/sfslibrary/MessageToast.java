@@ -22,6 +22,7 @@ public class MessageToast  {
         SharedPreferences.Editor editor =preferences.edit();
         editor.putString(passwords, password);
         editor.apply();
+        editor.commit();
 
         String my_value= preferences.getString(passwords,null);
 
