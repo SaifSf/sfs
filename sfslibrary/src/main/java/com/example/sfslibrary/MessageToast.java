@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import com.securepreferences.SecurePreferences;
 
+import java.util.logging.SocketHandler;
+
 public class MessageToast  {
 
 
@@ -19,11 +21,15 @@ public class MessageToast  {
     }
 
     public static void addPassword(Context context, String password) {
-        SharedPreferences.Editor editor = new SecurePreferences(context, passwords, "my_user_prefs.xml").edit();
-
+        SharedPreferences preferences = (SharedPreferences) new SecurePreferences(context, passwords, "my_user_prefs.xml").edit();
+        SharedPreferences.Editor editor =preferences.edit();
         editor.putString(passwords, password);
         editor.apply();
-        Log.i("waaaaaa library ", "addPassword: " +password);
+
+        String my_value= preferences.getString(passwords,password);
+
+
+        Log.i("waaaaaa library ", "addPassword: " +my_value);
 
     }
 
